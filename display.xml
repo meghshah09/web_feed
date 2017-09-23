@@ -1,0 +1,31 @@
+<html><head><link rel="stylesheet" type="text/css" href="style1.css"> </head>
+<body> <table border=1 width=100% ><tr><td width=6% class="three"><p>Field<p></td>
+
+<td width=85% class="four"><p>Post<p></td>
+<td width=9% class="five"><p>Time<p></td> </tr></table>
+</body>
+
+<?php
+
+mysqli_connect ("mysql.hostinger.in","u892369421_megh","123456","u892369421_cloud") or die (mysqli_error());
+
+$dbase_name="u892369421_cloud"; mysqli_select_db($dbase_name) or die(mysql_error());
+
+$data = mysqli_query("SELECT * FROM posts ORDER BY time DESC"); print"<table border= 1 >";
+
+while($info = mysql_fetch_array($data) ) {print"<tr>"; print"<th>".$info['subject']."</th>";
+
+print"<td>".$info['post']."</td>";
+
+print"<td>".$info['time']."</td>";
+
+print"</tr>";
+
+}
+
+print"</table>";
+
+mysqli_close();
+
+?>
+</html>
